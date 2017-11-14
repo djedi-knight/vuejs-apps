@@ -4,10 +4,11 @@
     <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
     <!-- We are passing the data to the Todo component to render the Todo list -->
-    <todo v-for="(todo, index) in todos" :key="index"
-          v-bind:todo="todo"
-          v-on:complete-todo="completeTodo"
-          v-on:delete-todo="deleteTodo">
+    <todo v-for="(todo, index) in todos"
+          :key="index"
+          :todo="todo"
+          @complete-todo="completeTodo"
+          @delete-todo="deleteTodo">
     </todo>
   </div>
 </template>
