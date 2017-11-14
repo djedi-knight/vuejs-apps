@@ -6,6 +6,7 @@
     <!-- We are passing the data to the Todo component to render the Todo list -->
     <todo v-for="(todo, index) in todos" :key="index"
           v-bind:todo="todo"
+          v-on:complete-todo="completeTodo"
           v-on:delete-todo="deleteTodo">
     </todo>
   </div>
@@ -20,6 +21,10 @@ export default {
     Todo,
   },
   methods: {
+    completeTodo(todo) {
+      const todoIndex = this.todos.indexOf(todo);
+      this.todos[todoIndex].done = true;
+    },
     deleteTodo(todo) {
       const todoIndex = this.todos.indexOf(todo);
       this.todos.splice(todoIndex, 1);

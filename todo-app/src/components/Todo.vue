@@ -37,7 +37,7 @@
     <div class='ui bottom attached green basic button' v-show="!isEditing && todo.done" disabled>
       Completed
     </div>
-    <div class='ui bottom attached red basic button' v-show="!isEditing && !todo.done">
+    <div class='ui bottom attached red basic button' v-show="!isEditing && !todo.done" v-on:click="completeTodo(todo)">
       Complete
     </div>
   </div>
@@ -57,6 +57,9 @@ export default {
     },
     hideForm() {
       this.isEditing = false;
+    },
+    completeTodo(todo) {
+      this.$emit('complete-todo', todo);
     },
     deleteTodo(todo) {
       this.$emit('delete-todo', todo);
