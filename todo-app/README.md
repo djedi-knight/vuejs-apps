@@ -2,6 +2,8 @@
 
 > A To-Do App Using VueJS 2
 
+Built using the following [tutorial](https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2)
+
 ## Build Setup
 
 ``` bash
