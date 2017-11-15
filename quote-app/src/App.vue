@@ -13,31 +13,30 @@
 </template>
 
 <script>
-import QuoteGrid from './components/QuoteGrid'
-import NewQuote from './components/NewQuote'
+  import QuoteGrid from './components/QuoteGrid'
+  import NewQuote from './components/NewQuote'
 
-export default {
-  data () {
-    return {
-      quotes: ['First Quote'],
-      maxQuotes: 10
-    }
-  },
-  methods: {
-    newQuote(quote) {
-      this.quotes.push(quote)
+  export default {
+    data () {
+      return {
+        quotes: ['First Quote'],
+        maxQuotes: 10
+      }
     },
-    deleteQuote(index) {
-      this.quotes.splice(index, 1);
+    methods: {
+      newQuote(quote) {
+        this.quotes.push(quote)
+      },
+      deleteQuote(index) {
+        this.quotes.splice(index, 1);
+      }
+    },
+    components: {
+      appQuoteGrid: QuoteGrid,
+      appNewQuote: NewQuote
     }
-  },
-  components: {
-    appQuoteGrid: QuoteGrid,
-    appNewQuote: NewQuote
   }
-}
 </script>
 
 <style>
-
 </style>

@@ -13,19 +13,19 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      quote: ''  
-    }
-  },
-  methods: {
-    createNew() {
-      this.$emit('quoteAdded', this.quote)
-      this.quote = ''
+  export default {
+    data() {
+      return {
+        quote: ''
+      }
+    },
+    methods: {
+      createNew() {
+        this.$emit('quoteAdded', this.quote)
+        this.quote = ''
+      }
     }
   }
-}
 </script>
 
 <style>

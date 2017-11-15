@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import Quote from './Quote'
+  import Quote from './Quote'
 
-export default {
-  props: ['quotes'],
-  components: {
-    appQuote: Quote
-  },
-  methods: {
-    deleteQuote(index) {
-      this.$emit('quoteDeleted', index)
+  export default {
+    props: ['quotes'],
+    components: {
+      appQuote: Quote
+    },
+    methods: {
+      deleteQuote(index) {
+        this.$emit('quoteDeleted', index)
+      }
     }
   }
-}
 </script>
 
 <style>
