@@ -15,11 +15,14 @@
 <script>
 export default {
   data() {
-    quote: ''
+    return {
+      quote: ''  
+    }
   },
   methods: {
     createNew() {
-      
+      this.$emit('quoteAdded', this.quote)
+      this.quote = ''
     }
   }
 }
