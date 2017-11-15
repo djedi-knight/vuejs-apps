@@ -1,11 +1,8 @@
 <template>
-  <h1>Hello World!</h1>
+  <app-servers></app-servers>
 </template>
 
 <script>
-export default {
-  data() {}
-}
 </script>
 
 <style>
