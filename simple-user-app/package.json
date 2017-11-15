@@ -1,6 +1,6 @@
 {
-  "name": "vue-app-webpack-simple",
-  "description": "A Vue.js project created using the webpack-simple Vue template",
+  "name": "simple-user-app",
+  "description": "An exmaple Vue.js project for simple component communication",
   "version": "1.0.0",
   "author": "Shawn Daichendt <shawn.daichendt@gmail.com>",
   "license": "MIT",

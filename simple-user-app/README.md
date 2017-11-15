@@ -1,6 +1,6 @@
-# vue-app-webpack-simple
+# simple-user-app
 
-> A Vue.js project created using the webpack-simple Vue template
+> An exmaple Vue.js project for simple component communication
 
 ## Build Setup
 

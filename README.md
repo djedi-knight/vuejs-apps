@@ -33,5 +33,6 @@ And *<project-name>* is the name of the project to create
 
 ## Applications
 
+- [simple-user-app](https://github.com/djedi-knight/vuejs-apps/tree/master/simple-user-app)
 - [todo-app](https://github.com/djedi-knight/vuejs-apps/tree/master/todo-app)
-- [vue-app-webpack-simple](https://github.com/djedi-knight/vuejs-apps/tree/master/vue-app-webpack-simple)
+- [webpack-simpleapp](https://github.com/djedi-knight/vuejs-apps/tree/master/webpack-simple-app)
