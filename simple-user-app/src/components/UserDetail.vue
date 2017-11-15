@@ -2,8 +2,10 @@
 <div class="component">
   <h3>You may view the User Details here</h3>
   <p>Many Details</p>
-  <p>User Name: {{ switchName() }}</p>
-  <button @click="resetName">Reset Name</button>
+  <p>User Name (Backwards): {{ switchName() }}</p>
+  <p>User Age: {{ userAge }}</p>
+  <button @click="resetName">Reset Name (Event)</button>
+  <button @click="resetFn()">Reset Name (Passed Fn)</button>
 </div>
 </template>
 
@@ -13,7 +15,9 @@ export default {
     myName: {
       type: String,
       default: 'Blank Name'
-    }
+    },
+    userAge: Number,
+    resetFn: Function
   },
   methods: {
     switchName() {
