@@ -35,6 +35,7 @@ And *<project-name>* is the name of the project to create
 
 - [advanced-app](https://github.com/djedi-knight/vuejs-apps/tree/master/advanced-app)
 - [directives-app](https://github.com/djedi-knight/vuejs-apps/tree/master/directives-app)
+- [filters-mixins-app](https://github.com/djedi-knight/vuejs-apps/tree/master/filters-mixins-app)
 - [form-app](https://github.com/djedi-knight/vuejs-apps/tree/master/form-app)
 - [quote-app](https://github.com/djedi-knight/vuejs-apps/tree/master/quote-app)
 - [simple-user-app](https://github.com/djedi-knight/vuejs-apps/tree/master/simple-user-app)
