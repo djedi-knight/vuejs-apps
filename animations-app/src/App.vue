@@ -47,18 +47,24 @@
 
   .slide-enter {
     /*transform: translateY(20px);*/
+    opacity: 0;
   }
 
   .slide-enter-active {
     animation: slide-in 1s ease-out forwards;
+    transition: opacity .5s;
+
   }
 
   .slide-leave {
     /*transform: translateY(0px);*/
+    /*opacity: 1;*/
   }
 
   .slide-leave-active {
     animation: slide-out 1s ease-out forwards;
+    transition: opacity .5s;
+    opacity: 0;
   }
 
   @keyframes slide-in {
