@@ -7,7 +7,10 @@
         <button class="btn btn-primary" @click="show = !show">Show Alert</button>
         <hr>
         <transition name="fade">
-          <div class="alert alert-info" v-if="show">This is some info</div>
+          <div class="alert alert-info" v-if="show">This is a css transition</div>
+        </transition>
+        <transition name="slide">
+          <div class="alert alert-info" v-if="show">This is a css animation</div>
         </transition>
       </div>
     </div>
@@ -40,5 +43,39 @@
   .fade-leave-active {
     transition: opacity 1s;
     opacity: 0;
+  }
+
+  .slide-enter {
+    /*transform: translateY(20px);*/
+  }
+
+  .slide-enter-active {
+    animation: slide-in 1s ease-out forwards;
+  }
+
+  .slide-leave {
+    /*transform: translateY(0px);*/
+  }
+
+  .slide-leave-active {
+    animation: slide-out 1s ease-out forwards;
+  }
+
+  @keyframes slide-in {
+    from {
+      transform: translateY(20px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(20px);
+    }
   }
 </style>
