@@ -11,7 +11,7 @@
           <label>E-Mail</label>
           <input type="text" class="form-control" v-model="user.email">
         </div>
-        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" @click="submit">Submit</button>
       </div>
     </div>
   </div>
@@ -25,6 +25,18 @@ export default {
         username: '',
         email: ''
       }
+    }
+  },
+  methods: {
+    submit() {
+      console.log(this.user)
+      this.$http
+        .post('https://vuejs-http-466e8.firebaseio.com/data.json', this.user)
+        .then(response => {
+          console.log(response)
+        }, error => {
+          console.log(error)
+        })
     }
   }
 }
