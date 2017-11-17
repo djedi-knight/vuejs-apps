@@ -5,41 +5,28 @@
         <h1>Animations</h1>
         <hr>
         <p>Animation Style</p>
-        <select v-model="alertAnimation">
+        <select v-model="alertAnimation" class="form-control">
           <option value="fade">Fade</option>
           <option value="slide">Slide</option>
         </select>
         <hr>
         <button class="btn btn-primary" @click="show = !show">Toggle Alerts</button>
         <hr>
-        <transition name="fade" appear>
-          <div class="alert alert-info" v-if="show">
-            This is an appearance transition
-          </div>
-        </transition>
-        <br>
-        <transition :name="alertAnimation">
-          <div class="alert alert-info" v-if="show">
-            This is a dynamic animation type
-          </div>
-        </transition>
-        <br>
-        <transition name="fade">
-          <div class="alert alert-info" v-if="show">
-            This is a css transition
-          </div>
-        </transition>
-        <br>
-        <transition name="slide">
-          <div class="alert alert-info" v-if="show">
-            This is a css animation
-          </div>
+        <transition :name="alertAnimation" mode="out-in">
+          <div class="alert alert-info" v-if="show" key="info">This is a info alert!</div>
+          <div class="alert alert-warning" v-if="!show" key="warning">This is a warning alert!</div>
         </transition>
         <br>
         <transition enter-active-class="animated bounce" leave-active-class="animated shake">
-          <div class="alert alert-info" v-if="show">
-            This is a Animate.css animation
-          </div>
+          <div class="alert alert-info" v-if="show">This is a Animate.css animation</div>
+        </transition>
+        <br>
+        <transition name="fade" appear>
+          <div class="alert alert-info" v-if="show">This is an appearance transition</div>
+        </transition>
+        <br>
+        <transition :name="alertAnimation">
+          <div class="alert alert-info" v-if="show">This is a dynamic css transition</div>
         </transition>
       </div>
     </div>
