@@ -6,12 +6,30 @@
         <hr>
         <button class="btn btn-primary" @click="show = !show">Show Alert</button>
         <hr>
+        <transition name="fade" appear>
+          <div class="alert alert-info" v-if="show">
+            This is an appearance transition
+          </div>
+        </transition>
+        <br><br>
         <transition name="fade">
-          <div class="alert alert-info" v-if="show">This is a css transition</div>
+          <div class="alert alert-info" v-if="show">
+            This is a css transition
+          </div>
         </transition>
+        <br><br>
         <transition name="slide">
-          <div class="alert alert-info" v-if="show">This is a css animation</div>
+          <div class="alert alert-info" v-if="show">
+            This is a css animation
+          </div>
         </transition>
+        <br><br>
+        <transition enter-active-class="animated bounce" leave-active-class="animated shake">
+          <div class="alert alert-info" v-if="show">
+            This is a Animate.css animation
+          </div>
+        </transition>
+        <br><br>
       </div>
     </div>
   </div>
@@ -21,7 +39,7 @@
   export default {
     data() {
       return {
-        show: false
+        show: true
       }
     }
   }
