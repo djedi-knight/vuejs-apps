@@ -12,5 +12,8 @@ export const fruitMixin = {
         return fruit.match(this.filterText)
       })
     }
+  },
+  created() {
+    console.log('Created (fruitMixin hook)')
   }
 }
