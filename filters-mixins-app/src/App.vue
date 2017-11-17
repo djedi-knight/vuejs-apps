@@ -5,23 +5,45 @@
         <h1>Filters & Mixins</h1>
         <p>{{ text1 | toUppercase }}</p>
         <p>{{ text2 | toUppercase | to-lowercase }}</p>
+        <hr>
+        <input v-model="filterText">
+        <ul>
+          <li v-for="fruit in filteredFruits">{{ fruit }}</li>
+        </ul>
+        <hr>
+        <app-list></app-list>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import List from './components/List'
+
   export default {
     data() {
       return {
         text1: 'text for upper case filter',
-        text2: 'TEXT FOR LOWER CASE FILTER'
+        text2: 'TEXT FOR LOWER CASE FILTER',
+        fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
+        filterText: ''
       }
     },
     filters: {
       toUppercase(value) {
         return value.toUpperCase()
       }
+    },
+    computed: {
+      // more performant to handle input filtering with computed property
+      filteredFruits() {
+        return this.fruits.filter((fruit) => {
+          return fruit.match(this.filterText)
+        })
+      }
+    },
+    components: {
+      appList: List
     }
   }
 </script>
