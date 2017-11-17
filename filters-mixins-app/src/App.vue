@@ -19,27 +19,19 @@
 
 <script>
   import List from './components/List'
+  import { fruitMixin } from './mixins/fruitMixin'
 
   export default {
+    mixins: [fruitMixin],
     data() {
       return {
         text1: 'text for upper case filter',
         text2: 'TEXT FOR LOWER CASE FILTER',
-        fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
-        filterText: ''
       }
     },
     filters: {
       toUppercase(value) {
         return value.toUpperCase()
-      }
-    },
-    computed: {
-      // more performant to handle input filtering with computed property
-      filteredFruits() {
-        return this.fruits.filter((fruit) => {
-          return fruit.match(this.filterText)
-        })
       }
     },
     components: {

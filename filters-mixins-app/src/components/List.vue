@@ -9,21 +9,10 @@
 </template>
 
 <script>
+  import { fruitMixin } from '../mixins/fruitMixin'
+
   export default {
-    data() {
-      return {
-        fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
-        filterText: ''
-      }
-    },
-    computed: {
-      // more performant to handle input filtering with computed property
-      filteredFruits() {
-        return this.fruits.filter((fruit) => {
-          return fruit.match(this.filterText)
-        })
-      }
-    }
+    mixins: [fruitMixin]
   }
 </script>
 
