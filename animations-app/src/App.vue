@@ -40,9 +40,11 @@
           @before-leave="beforeLeave"
           @leave="leave"
           @after-leave="afterLeave"
-          @leave-cancelled="leaveCancelled">
-          <div style="width: 100px; height: 100px; background-color: lightgreen;" v-if="load"></div>
+          @leave-cancelled="leaveCancelled"
+          :css="false">
+          <div style="width: 300px; height: 100px; background-color: lightgreen;" v-if="load"></div>
         </transition>
+        <br><br>
       </div>
     </div>
   </div>
@@ -54,16 +56,28 @@
       return {
         show: true,
         load: true,
+        elementWidth: 100,
         alertAnimation: 'fade'
       }
     },
     methods: {
       beforeEnter(el) {
         console.log('beforeEnter')
+        this.elementWidth = 100
+        el.style.width = this.elementWidth + 'px'
       },
       enter(el, done) {
         console.log('enter')
-        done()
+        // increase the width of the element
+        let round = 1
+        const interval = setInterval(() => {
+          el.style.width = (this.elementWidth + (round * 10)) + 'px'
+          round++
+          if (round > 20) {
+            clearInterval(interval)
+            done()
+          }
+        }, 20)
       },
       afterEnter(el) {
         console.log('afterEnter')
@@ -73,10 +87,21 @@
       },
       beforeLeave(el) {
         console.log('beforeLeave')
+        this.elementWidth = 300
+        el.style.width = this.elementWidth + 'px'
       },
       leave(el, done) {
         console.log('leave')
-        done()
+        // decrease the width of the element
+        let round = 1
+        const interval = setInterval(() => {
+          el.style.width = (this.elementWidth - (round * 10)) + 'px'
+          round++
+          if (round > 20) {
+            clearInterval(interval)
+            done()
+          }
+        }, 20)
       },
       afterLeave(el) {
         console.log('afterLeave')
