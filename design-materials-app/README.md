@@ -15,4 +15,8 @@ npm run dev
 npm run build
 ```
 
+## Dependencies
+
+- [musi-ui](https://github.com/museui/muse-ui)
+
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
