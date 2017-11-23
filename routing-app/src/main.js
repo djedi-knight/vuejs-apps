@@ -7,7 +7,10 @@ import { routes } from './routes'
 Vue.use(VueRouter)
 
 // create VueRouter
-const router = new VueRouter({routes}) // ES6: equivalent to {routes: routes}
+const router = new VueRouter({
+  routes, // ES6: equivalent to {routes: routes}
+  mode: 'history'
+})
 
 new Vue({
   el: '#app',
