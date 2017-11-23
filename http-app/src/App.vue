@@ -12,6 +12,7 @@
           <input type="text" class="form-control" v-model="user.email">
         </div>
         <button class="btn btn-primary" @click="submit">Submit</button>
+        <button class="btn btn-warning" @click="submitCustom">Submit (Custom)</button>
         <hr>
         <button class="btn btn-primary" @click="fetchData">Get Data</button>
         <br><br>
@@ -46,6 +47,9 @@ export default {
       //   })
       this.resource.save({}, this.user)
     },
+    submitCustom() {
+      this.resource.saveCustom(this.user)
+    },
     fetchData() {
       this.$http
         .get('data.json')
@@ -60,8 +64,14 @@ export default {
     }
   },
   created() {
+    const customActions = {
+      saveCustom: {
+        method: 'POST',
+        url: 'custom.json'
+      }
+    }
     // setup VueResource
-    this.resource = this.$resource('data.json')
+    this.resource = this.$resource('data.json', {}, customActions)
   }
 }
 </script>
