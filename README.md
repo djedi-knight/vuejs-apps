@@ -38,6 +38,7 @@ Where *<template-name>* is the name of one of the following vue templates to use
 - [vuetifyjs/simple](https://github.com/vuetifyjs/simple)
 - [webpack](https://github.com/vuejs-templates/webpack)
 - [webpack-simple](https://github.com/vuejs-templates/webpack-simple)
+- and more!
 
 And *<project-name>* is the name of the project to create
 
@@ -53,6 +54,7 @@ And *<project-name>* is the name of the project to create
 - [form-app](https://github.com/djedi-knight/vuejs-apps/tree/master/form-app)
 - [http-app](https://github.com/djedi-knight/vuejs-apps/tree/master/http-app)
 - [quote-app](https://github.com/djedi-knight/vuejs-apps/tree/master/quote-app)
+- [routing-app](https://github.com/djedi-knight/vuejs-apps/tree/master/routing-app)
 - [simple-user-app](https://github.com/djedi-knight/vuejs-apps/tree/master/simple-user-app)
 - [todo-app](https://github.com/djedi-knight/vuejs-apps/tree/master/todo-app)
 - [webpack-simpleapp](https://github.com/djedi-knight/vuejs-apps/tree/master/webpack-simple-app)
