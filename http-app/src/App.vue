@@ -14,6 +14,11 @@
         <button class="btn btn-primary" @click="submit">Submit</button>
         <button class="btn btn-warning" @click="submitCustom">Submit (Custom)</button>
         <hr>
+        <div class="form-group">
+          <label>Data Source</label>
+          <input class="form-control" type="text" v-model="node">
+        </div>
+        <hr>
         <button class="btn btn-primary" @click="fetchData">Get Data</button>
         <br><br>
         <ul class="list-group">
@@ -33,7 +38,8 @@ export default {
         email: ''
       },
       users: [],
-      resource: {}
+      resource: {},
+      node: 'data'
     }
   },
   methods: {
@@ -45,33 +51,49 @@ export default {
       //   }, error => {
       //     console.log(error)
       //   })
-      this.resource.save({}, this.user)
+      this.resource.save({
+        node: this.node
+      }, this.user)
     },
     submitCustom() {
       this.resource.saveCustom(this.user)
     },
     fetchData() {
-      this.$http
-        .get('data.json')
-        .then(response => { return response.json() })
-        .then(data => {
-          const resultsArray = []
-          for (let key in data) {
-            resultsArray.push(data[key])
-          }
-          this.users = resultsArray
-        })
+      // this.$http
+      //   .get('data.json')
+      //   .then(response => { return response.json() })
+      //   .then(data => {
+      //     const resultsArray = []
+      //     for (let key in data) {
+      //       resultsArray.push(data[key])
+      //     }
+      //     this.users = resultsArray
+      //   })
+      this.resource.getData({
+        node: this.node
+      }).then(response => {
+        return response.json()
+      }).then(data => {
+        const resultsArray = []
+        for (let key in data) {
+          resultsArray.push(data[key])
+        }
+        this.users = resultsArray
+      })
     }
   },
   created() {
     const customActions = {
+      getData: {
+        method: 'GET'
+      },
       saveCustom: {
         method: 'POST',
         url: 'custom.json'
       }
     }
     // setup VueResource
-    this.resource = this.$resource('data.json', {}, customActions)
+    this.resource = this.$resource('{node}.json', {}, customActions)
   }
 }
 </script>
