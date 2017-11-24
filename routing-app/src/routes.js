@@ -7,7 +7,8 @@ export const routes = [
     component: Home
   },
   {
-    path: '/user/:id',
-    component: User
+    path: '/user/:userId',
+    component: User,
+    props: true
   }
 ]

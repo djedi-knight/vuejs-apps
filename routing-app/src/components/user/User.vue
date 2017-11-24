@@ -9,16 +9,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      userId: this.$route.params.id
-    }
-  },
-  watch: {
-    '$route'(to, from) {
-      this.userId = to.params.id
-    }
-  },
+  props: ['userId'],
+  // data() {
+  //   return {
+  //     userId: this.$route.params.userId
+  //   }
+  // },
+  // watch: {
+  //   '$route'(to, from) {
+  //     this.userId = to.params.userId
+  //   }
+  // },
   methods: {
     navigateToHome() {
       this.$router.push('/')
