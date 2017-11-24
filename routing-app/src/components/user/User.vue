@@ -2,14 +2,15 @@
 <div>
   <h1>The User Page</h1>
   <hr>
-  <p>Loaded ID: {{ userId }}</p>
   <button class="btn btn-primary" @click="navigateToHome">Go Home</button>
+  <hr>
+  <router-view></router-view>
 </div>
 </template>
 
 <script>
 export default {
-  props: ['userId'],
+  // props: ['userId'],
   // data() {
   //   return {
   //     userId: this.$route.params.userId

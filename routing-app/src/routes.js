@@ -1,14 +1,25 @@
 import Home from './components/Home.vue'
 import User from './components/User/User.vue'
+import UserDetail from './components/User/UserDetail.vue'
+import UserEdit from './components/User/UserEdit.vue'
+import UserStart from './components/User/UserStart.vue'
 
-export const routes = [
-  {
+export const routes = [{
+  path: '',
+  component: Home
+}, {
+  path: '/user',
+  component: User,
+  children: [{
     path: '',
-    component: Home
-  },
-  {
-    path: '/user/:userId',
-    component: User,
+    component: UserStart
+  }, {
+    path: ':userId',
+    component: UserDetail,
     props: true
-  }
-]
+  }, {
+    path: ':userId/edit',
+    component: UserEdit,
+    props: true
+  }]
+}]
