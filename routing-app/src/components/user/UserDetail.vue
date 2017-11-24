@@ -29,6 +29,10 @@ export default {
         hash: '#data'
       }
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log('component UserDetail.beforeEach() called')
+    next()
   }
 }
 </script>

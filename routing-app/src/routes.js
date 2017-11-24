@@ -26,7 +26,7 @@ export const routes = [{
     component: UserDetail,
     props: true,
     beforeEnter(to, from, next) {
-      console.log('route UserDetail.beforeEach() called')
+      console.log('route /user/:userId UserDetail.beforeEach() called')
       next()
     }
   }, {
