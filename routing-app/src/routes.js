@@ -6,6 +6,7 @@ import UserStart from './components/User/UserStart.vue'
 
 export const routes = [{
   path: '',
+  name: 'home',
   component: Home
 }, {
   path: '/user',
@@ -19,6 +20,7 @@ export const routes = [{
     props: true
   }, {
     path: ':userId/edit',
+    name: 'userEdit',
     component: UserEdit,
     props: true
   }]
