@@ -31,6 +31,7 @@ export default {
     }
   },
   beforeRouteEnter(to, from, next) {
+    // at this point, access to the component (props, data, etc) is unavailable
     console.log('component UserDetail.beforeEach() called')
     next()
   }
