@@ -31,4 +31,9 @@ export const routes = [{
     component: UserEdit,
     props: true
   }]
+}, {
+  path: '/redirect-me',
+  redirect: {
+    name: 'home'
+  }
 }]
