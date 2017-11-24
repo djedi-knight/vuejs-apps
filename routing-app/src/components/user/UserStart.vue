@@ -13,5 +13,6 @@
       User 3
     </router-link>
   </ul>
+  <hr>
 </div>
 </template>

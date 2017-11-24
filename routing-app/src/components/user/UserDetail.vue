@@ -5,6 +5,7 @@
     <router-link :to="{ name: 'userEdit', query: { locale: 'en', q: 100 }}" tag="button" class="btn btn-primary">
       Edit User
     </router-link>
+    <hr>
   </div>
 </template>
 
