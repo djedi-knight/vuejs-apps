@@ -28,6 +28,12 @@ const router = new VueRouter({
   }
 })
 
+// setup router guards
+router.beforeEach((to, from, next) => {
+  console.log('router.beforeEach() called')
+  next()
+})
+
 new Vue({
   el: '#app',
   router,
