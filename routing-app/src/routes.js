@@ -36,4 +36,9 @@ export const routes = [{
   redirect: {
     name: 'home'
   }
+}, {
+  path: '*',
+  redirect: {
+    name: 'home'
+  }
 }]
