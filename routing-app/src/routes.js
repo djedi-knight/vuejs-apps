@@ -24,7 +24,11 @@ export const routes = [{
   }, {
     path: ':userId',
     component: UserDetail,
-    props: true
+    props: true,
+    beforeEnter(to, from, next) {
+      console.log('route UserDetail.beforeEach() called')
+      next()
+    }
   }, {
     path: ':userId/edit',
     name: 'userEdit',
