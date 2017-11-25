@@ -19,7 +19,7 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     if (!this.confirmed) {
-      if (confirm('Are you sure>')) {
+      if (confirm('Are you sure?')) {
         next()
       } else {
         next(false)
