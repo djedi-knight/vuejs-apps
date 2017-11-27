@@ -16,11 +16,19 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
-    incrementMutation(state) {
-      state.counter++
+    incrementMutation(state, payload) {
+      if (payload) {
+        state.counter += payload
+      } else {
+        state.counter++
+      }
     },
-    decrementMutation(state) {
-      state.counter--
+    decrementMutation(state, payload) {
+      if (payload) {
+        state.counter -= payload
+      } else {
+        state.counter--
+      }
     }
   },
   actions: {
@@ -39,6 +47,12 @@ export const store = new Vuex.Store({
       setTimeout(() => {
         commit('decrementMutation')
       }, 1000)
-    }
+    },
+    incrementByAction(context, payload) {
+      context.commit('incrementMutation', payload)
+    },
+    decrementByAction({ commit }, payload) {
+      commit('decrementMutation', payload)
+    },
   }
 })

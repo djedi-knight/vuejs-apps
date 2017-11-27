@@ -19,6 +19,12 @@
     <button class="btn btn-warning" @click="asyncIncrementAction">Increment (Async Action)</button>
     <button class="btn btn-warning" @click="asyncDecrementAction">Decrement (Async Action)</button>
   </div>
+  <hr>
+  <div>
+    <button class="btn btn-primary" @click="incrementByAction(100)">Increment By 100 (Action)</button>
+    <button class="btn btn-primary" @click="decrementByAction(100)">Decrement By 100 (Action)</button>
+  </div>
+  <br>
 </div>
 </template>
 
@@ -43,7 +49,13 @@ export default {
     decrementAction() {
       this.$store.dispatch('decrementAction')
     },
-    ...mapActions(['asyncIncrementAction', 'asyncDecrementAction'])
+    ...mapActions(['asyncIncrementAction', 'asyncDecrementAction']),
+    incrementByAction(by) {
+      this.$store.dispatch('incrementByAction', by)
+    },
+    decrementByAction(by) {
+      this.$store.dispatch('decrementByAction', by)
+    },
   }
 }
 </script>
