@@ -25,6 +25,10 @@
     <button class="btn btn-primary" @click="decrementByAction(100)">Decrement By 100 (Action)</button>
   </div>
   <br>
+  <div>
+    <button class="btn btn-warning" @click="asyncIncrementByAction({by: 50, duration: 5000})">Increment By 50 in 5000ms (Async Action)</button>
+    <button class="btn btn-warning" @click="asyncDecrementByAction({by: 50, duration: 5000})">Decrement By 50 in 5000ms (Async Action)</button>
+  </div>
 </div>
 </template>
 
@@ -55,6 +59,12 @@ export default {
     },
     decrementByAction(by) {
       this.$store.dispatch('decrementByAction', by)
+    },
+    asyncIncrementByAction(payload) {
+      this.$store.dispatch('asyncIncrementByAction', payload)
+    },
+    asyncDecrementByAction(payload) {
+      this.$store.dispatch('asyncDecrementByAction', payload)
     },
   }
 }

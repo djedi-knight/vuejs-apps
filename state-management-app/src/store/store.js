@@ -54,5 +54,15 @@ export const store = new Vuex.Store({
     decrementByAction({ commit }, payload) {
       commit('decrementMutation', payload)
     },
+    asyncIncrementByAction(context, payload) {
+      setTimeout(() => {
+        context.commit('incrementMutation', payload.by)
+      }, payload.duration)
+    },
+    asyncDecrementByAction({ commit }, payload) {
+      setTimeout(() => {
+        commit('decrementMutation', payload.by)
+      }, payload.duration)
+    },
   }
 })
