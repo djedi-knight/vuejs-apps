@@ -16,10 +16,10 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
-    increment: state => {
+    incrementMutation: state => {
       state.counter++
     },
-    decrement: state => {
+    decrementMutation: state => {
       state.counter--
     }
   }
