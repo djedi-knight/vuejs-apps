@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: { // current state (required variable for Vuex)
-    counter: 0
+    counter: 0,
+    value: 0
   },
   getters: { // getters are accessor methods for the state
     doubleCounter(state) {
@@ -13,6 +14,9 @@ export const store = new Vuex.Store({
     },
     stringCounter(state) {
       return 'Current counter: ' + state.counter
+    },
+    value(state) {
+      return state.value
     }
   },
   mutations: { // mutations are helper methods for modifying the state
@@ -29,6 +33,9 @@ export const store = new Vuex.Store({
       } else {
         state.counter--
       }
+    },
+    updateValueMutation(state, payload) {
+      state.value = payload
     }
   },
   actions: { // actions allow for mutations to run with async code
@@ -64,5 +71,8 @@ export const store = new Vuex.Store({
         commit('decrementMutation', payload.by)
       }, payload.duration)
     },
+    updateValueAction({ commit }, payload) {
+      commit('updateValueMutation', payload)
+    }
   }
 })
