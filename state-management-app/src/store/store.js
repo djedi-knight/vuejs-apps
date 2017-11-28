@@ -4,10 +4,10 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
-  state: { // required variable for Vuex
+  state: { // current state (required variable for Vuex)
     counter: 0
   },
-  getters: {
+  getters: { // getters are accessor methods for the state
     doubleCounter(state) {
       return state.counter * 2
     },
@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
       return 'Current counter: ' + state.counter
     }
   },
-  mutations: {
+  mutations: { // mutations are helper methods for modifying the state
     incrementMutation(state, payload) {
       if (payload) {
         state.counter += payload
@@ -31,7 +31,7 @@ export const store = new Vuex.Store({
       }
     }
   },
-  actions: {
+  actions: { // actions allow for mutations to run with async code
     incrementAction(context) {
       context.commit('incrementMutation')
     },
