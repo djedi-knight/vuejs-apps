@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+// import counter modules
+// import counter from './modules/counter'
+
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -21,6 +24,9 @@ export const store = new Vuex.Store({
   },
   mutations: { // mutations are helper methods for modifying the state
     incrementMutation(state, payload) {
+      console.log('in incrementMutation()')
+      console.log('state.counter', state.counter)
+      console.log('payload', payload)
       if (payload) {
         state.counter += payload
       } else {
@@ -73,6 +79,9 @@ export const store = new Vuex.Store({
     },
     updateValueAction({ commit }, payload) {
       commit('updateValueMutation', payload)
-    }
+    },
+    // modules: { // outsourced state/ getters/ mutations/ actions
+    //   counter
+    // }
   }
 })

@@ -46,7 +46,10 @@ export default {
     incrementMutation() {
       this.$store.commit('incrementMutation')
     },
-    ...mapMutations(['decrementMutation']),
+    decrementMutation() {
+      this.$store.commit('decrementMutation')
+    },
+    // ...mapMutations(['incrementMutation', 'decrementMutation']),
     incrementAction() {
       this.$store.dispatch('incrementAction')
     },
