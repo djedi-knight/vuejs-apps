@@ -53,7 +53,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['randomizeStocks']),
+    ...mapActions({
+      randomizeStocks: 'randomizeStocks',
+      fetchData: 'loadData'
+    }),
     endDay() {
       this.randomizeStocks()
     },
@@ -61,7 +64,7 @@ export default {
       // create data object from store data
       const data = {
         funds: this.$store.getters.funds,
-        stockPortfolio: this.$store.getters.stockPortfolio,
+        portfolioStocks: this.$store.getters.portfolioStocks,
         stocks: this.$store.getters.stocks
       }
 
@@ -69,7 +72,7 @@ export default {
       this.$http.put('data.json', data)
     },
     loadData() {
-
+      this.fetchData()
     }
   }
 }
