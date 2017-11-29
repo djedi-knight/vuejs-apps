@@ -8,16 +8,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import * as types from '../store/types'
 
 export default {
   computed: {
     // counter() {
     //   return this.$store.state.counter
     // },
-    doubleCounter() {
-      return this.$store.getters.doubleCounter
-    },
-    ...mapGetters(['stringCounter'])
+    // doubleCounter() {
+    //   return this.$store.getters.doubleCounter
+    // },
+    ...mapGetters({
+      doubleCounter: types.DOUBLE_COUNTER,
+      stringCounter: types.STRING_COUNTER
+    })
   }
 }
 </script>
