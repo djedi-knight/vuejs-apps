@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-// import counter module
+// import modules
 import counter from './modules/counter'
+
+// import mutations
+import { updateValueMutation } from './mutations'
+
+// import actions
+import * as actions from './actions'
 
 Vue.use(Vuex)
 
@@ -16,15 +22,17 @@ export const store = new Vuex.Store({
     }
   },
   mutations: { // mutations are helper methods for modifying the state
-    updateValueMutation(state, payload) {
-      state.value = payload
-    }
+    // updateValueMutation(state, payload) {
+    //   state.value = payload
+    // }
+    updateValueMutation
   },
-  actions: { // actions allow for mutations to run with async code
-    updateValueAction({ commit }, payload) {
-      commit('updateValueMutation', payload)
-    }
-  },
+  // actions: { // actions allow for mutations to run with async code
+  //   updateValueAction({ commit }, payload) {
+  //     commit('updateValueMutation', payload)
+  //   }
+  // },
+  actions,
   modules: { // outsourced state/ getters/ mutations/ actions
     counter
   }
