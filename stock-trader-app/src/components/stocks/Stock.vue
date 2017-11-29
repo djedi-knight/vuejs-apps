@@ -38,8 +38,7 @@ export default {
         stockQuantity: this.quantity
       }
 
-      // loc order and reset quantity
-      console.log('order', order)
+      this.$store.dispatch('buyStock', order)
       this.quantity = 0
     }
   }
