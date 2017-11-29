@@ -12,7 +12,7 @@
         <input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
       </div>
       <div class="pull-right">
-        <button class="btn btn-success">Buy</button>
+        <button class="btn btn-success" @click="buyStock">Buy</button>
       </div>
     </div>
   </div>
@@ -25,6 +25,19 @@ export default {
   data() {
     return {
       quantity: 0
+    }
+  },
+  methods: {
+    buyStock() {
+      const order = {
+        stockId: this.stock.id,
+        stockPrice: this.stock.price,
+        stockQuantity: this.quantity
+      }
+
+      // loc order and reset quantity
+      console.log('order', order)
+      this.quantity = 0
     }
   }
 }
