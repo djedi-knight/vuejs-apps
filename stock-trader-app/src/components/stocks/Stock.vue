@@ -9,10 +9,10 @@
     </div>
     <div class="panel-body">
       <div class="pull-left">
-        <input type="number" class="form-control" placeholder="Quantity" v-model="quantity">
+        <input class="form-control" type="number" v-model.number="quantity" placeholder="Quantity">
       </div>
       <div class="pull-right">
-        <button class="btn btn-success" @click="buyStock">Buy</button>
+        <button class="btn btn-success" :disabled="!isOrderValid()" @click="buyStock()">Buy</button>
       </div>
     </div>
   </div>
@@ -28,6 +28,9 @@ export default {
     }
   },
   methods: {
+    isOrderValid() {
+      return this.quantity > 0 && Number.isInteger(this.quantity)
+    },
     buyStock() {
       const order = {
         stockId: this.stock.id,
