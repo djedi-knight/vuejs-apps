@@ -12,7 +12,7 @@
         <input class="form-control" type="number" v-model.number="quantity" placeholder="Quantity">
       </div>
       <div class="pull-right">
-        <button class="btn btn-success" :disabled="!isOrderValid()" @click="buyStock()">Buy</button>
+        <button class="btn btn-success" :disabled="!isOrderValid" @click="buyStock">Buy</button>
       </div>
     </div>
   </div>
@@ -27,10 +27,17 @@ export default {
       quantity: 0
     }
   },
-  methods: {
-    isOrderValid() {
-      return this.quantity > 0 && Number.isInteger(this.quantity)
+  computed: {
+    funds() {
+      return this.$store.getters.funds
     },
+    isOrderValid() {
+      return this.quantity > 0
+        && Number.isInteger(this.quantity)
+        && this.quantity * this.stock.price <= this.funds
+    }
+  },
+  methods: {
     buyStock() {
       const order = {
         stockId: this.stock.id,
