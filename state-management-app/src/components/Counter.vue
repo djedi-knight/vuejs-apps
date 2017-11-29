@@ -1,9 +1,9 @@
 <template>
 <div>
-  <div>
+  <!-- <div>
     <button class="btn btn-primary" @click="increment">Increment</button>
     <button class="btn btn-primary" @click="decrement">Decrement</button>
-  </div>
+  </div> -->
   <br>
   <div>
     <button class="btn btn-warning" @click="incrementMutation">Increment (Mutation)</button>
@@ -37,19 +37,21 @@ import { mapActions, mapMutations } from 'vuex'
 
 export default {
   methods: {
-    increment() {
-      this.$store.state.counter++
-    },
-    decrement() {
-      this.$store.state.counter--
-    },
+    // increment() {
+    //   this.$store.state.counter++
+    // },
+    // decrement() {
+    //   this.$store.state.counter--
+    // },
     incrementMutation() {
       this.$store.commit('incrementMutation')
     },
     decrementMutation() {
       this.$store.commit('decrementMutation')
     },
-    // ...mapMutations(['incrementMutation', 'decrementMutation']),
+    // this does not work
+    // payload parameter gets altered when not explicitly defined
+    // ...mapMutations(['decrementMutation']),
     incrementAction() {
       this.$store.dispatch('incrementAction')
     },
