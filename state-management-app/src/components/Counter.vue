@@ -4,12 +4,12 @@
     <button class="btn btn-primary" @click="increment">Increment</button>
     <button class="btn btn-primary" @click="decrement">Decrement</button>
   </div> -->
-  <br>
+  <!-- <br>
   <div>
     <button class="btn btn-warning" @click="incrementMutation">Increment (Mutation)</button>
     <button class="btn btn-warning" @click="decrementMutation">Decrement (Mutation)</button>
   </div>
-  <hr>
+  <hr> -->
   <div>
     <button class="btn btn-primary" @click="incrementAction">Increment (Action)</button>
     <button class="btn btn-primary" @click="decrementAction">Decrement (Action)</button>
@@ -43,34 +43,44 @@ export default {
     // decrement() {
     //   this.$store.state.counter--
     // },
-    incrementMutation() {
-      this.$store.commit('incrementMutation')
-    },
-    decrementMutation() {
-      this.$store.commit('decrementMutation')
-    },
+    // incrementMutation() {
+    //   this.$store.commit('incrementMutation')
+    // },
+    // decrementMutation() {
+    //   this.$store.commit('decrementMutation')
+    // },
     // this does not work
     // payload parameter gets altered when not explicitly defined
     // ...mapMutations(['decrementMutation']),
-    incrementAction() {
-      this.$store.dispatch('incrementAction')
-    },
-    decrementAction() {
-      this.$store.dispatch('decrementAction')
-    },
-    ...mapActions(['asyncIncrementAction', 'asyncDecrementAction']),
-    incrementByAction(by) {
-      this.$store.dispatch('incrementByAction', by)
-    },
-    decrementByAction(by) {
-      this.$store.dispatch('decrementByAction', by)
-    },
-    asyncIncrementByAction(payload) {
-      this.$store.dispatch('asyncIncrementByAction', payload)
-    },
-    asyncDecrementByAction(payload) {
-      this.$store.dispatch('asyncDecrementByAction', payload)
-    },
+    // incrementAction() {
+    //   this.$store.dispatch('incrementAction')
+    // },
+    // decrementAction() {
+    //   this.$store.dispatch('decrementAction')
+    // },
+    // ...mapActions(['asyncIncrementAction', 'asyncDecrementAction']),
+    // incrementByAction(by) {
+    //   this.$store.dispatch('incrementByAction', by)
+    // },
+    // decrementByAction(by) {
+    //   this.$store.dispatch('decrementByAction', by)
+    // },
+    // asyncIncrementByAction(payload) {
+    //   this.$store.dispatch('asyncIncrementByAction', payload)
+    // },
+    // asyncDecrementByAction(payload) {
+    //   this.$store.dispatch('asyncDecrementByAction', payload)
+    // },
+    ...mapActions('counter', [
+      'incrementAction',
+      'decrementAction',
+      'asyncIncrementAction',
+      'asyncDecrementAction',
+      'incrementByAction',
+      'decrementByAction',
+      'asyncIncrementByAction',
+      'asyncDecrementByAction'
+    ]),
   }
 }
 </script>

@@ -34,6 +34,12 @@ export const store = new Vuex.Store({
   // },
   actions,
   modules: { // outsourced state/ getters/ mutations/ actions
-    counter
+    counter: {
+      namespaced: true, // Vuex 2.1 allows for auto-namespaced modules
+      state: counter.state,
+      getters: counter.getters,
+      mutations: counter.mutations,
+      actions: counter.actions
+    }
   }
 })

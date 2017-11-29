@@ -1,14 +1,14 @@
-import * as types from '../types'
+// import * as types from '../types'
 
 const state = {
   counter: 0
 }
 
 const getters = {
-  [types.DOUBLE_COUNTER](state) {
+  doubleCounter(state) {
     return state.counter * 2
   },
-  [types.STRING_COUNTER](state) {
+  stringCounter(state) {
     return 'Current counter: ' + state.counter
   }
 }
