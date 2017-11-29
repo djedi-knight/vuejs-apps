@@ -1,6 +1,6 @@
 <template>
 <div class="col-sm-6 col-md-4">
-  <div class="panel panel-success">
+  <div class="panel panel-info">
     <div class="panel-heading">
       <h3 class="panel-title">
         {{ stock.name }}
@@ -29,9 +29,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'sellStock'
-    ]),
+    ...mapActions({
+      placeSellOrder: 'sellStock'
+    }),
     isOrderValid() {
       return this.quantity > 0 && Number.isInteger(this.quantity)
     },
@@ -42,7 +42,7 @@ export default {
         stockQuantity: this.quantity
       }
 
-      this.sellStock(order)
+      this.placeSellOrder(order)
       this.quantity = 0
     }
   }

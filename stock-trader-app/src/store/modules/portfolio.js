@@ -40,7 +40,6 @@ const mutations = {
     state.funds -= stockPrice * stockQuantity
   },
   'SELL_STOCK'(state, { stockId, stockPrice, stockQuantity }) {
-    console.log('in SELL_STOCK mutation')
     const record = state.stocks.find(element => {
       return element.id == stockId
     })
