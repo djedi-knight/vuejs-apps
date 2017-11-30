@@ -90,8 +90,11 @@ export default {
       console.log(formData)
 
       // submit data via axios
-      axios.post('/users.json', formData)
-        .then(response => console.log('response', response))
+      axios.post('/signupNewUser?key=AIzaSyCfXeM6r5VN-Yr1up15gjx8PCBF4XkVWjc', {
+        email: formData.email,
+        password: formData.password,
+        returnSecureToken: true
+      }).then(response => console.log('response', response))
         .catch(error => console.log('error', error))
     }
   }

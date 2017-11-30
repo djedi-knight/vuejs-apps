@@ -15,4 +15,8 @@ npm run dev
 npm run build
 ```
 
+## Useful Links
+
+[Firebase Auth REST API](https://firebase.google.com/docs/reference/rest/auth/)
+
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

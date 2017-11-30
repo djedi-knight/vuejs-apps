@@ -7,7 +7,7 @@ import store from './store'
 
 axios.defaults.baseURL = 'https://axios-app.firebaseio.com'
 
-axios.defaults.headers.common['Authorization'] = 'sample_auth_header'
+// axios.defaults.headers.common['Authorization'] = 'sample_auth_header'
 axios.defaults.headers.get['Accepts'] = 'application/json'
 
 axios.interceptors.request.use(request => {
