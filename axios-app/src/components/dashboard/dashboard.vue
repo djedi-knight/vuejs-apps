@@ -16,7 +16,7 @@ export default {
     }
   },
   created() {
-    axios.get('https://axios-app.firebaseio.com/users.json')
+    axios.get('/users.json')
       .then(response => {
         console.log('response', response)
         // get data from response

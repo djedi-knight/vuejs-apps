@@ -89,7 +89,7 @@ export default {
       console.log(formData)
 
       // submit data via axios
-      axios.post('https://axios-app.firebaseio.com/users.json', formData)
+      axios.post('/users.json', formData)
         .then(response => console.log('response', response))
         .catch(error => console.log('error', error))
     }
