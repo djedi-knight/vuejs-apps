@@ -1,6 +1,6 @@
-# axios-app
+# axios-auth-app
 
-> A Vue.js project using Axios as an alternative to vue-resource
+> A Vue.js project using Axios as an alternative to vue-resource.  Also, explores the topic of authentication.
 
 ## Build Setup
 

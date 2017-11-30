@@ -1,6 +1,6 @@
 {
-  "name": "axios-app",
-  "description": "A Vue.js project using Axios as an alternative to vue-resource",
+  "name": "axios-auth-app",
+  "description": "A Vue.js project using Axios as an alternative to vue-resource.  Also, explores the topic of authentication.",
   "version": "1.0.0",
   "author": "Shawn Daichendt <shawn.daichendt@gmail.com>",
   "license": "MIT",
