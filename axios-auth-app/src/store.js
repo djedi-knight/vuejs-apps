@@ -11,7 +11,10 @@ export default new Vuex.Store({
     userId: null
   },
   mutations: {
-
+    authUser(state, userData) {
+      state.idToken = userData.token
+      state.userId = userData.userId
+    }
   },
   actions: {
     signup({ commit }, authData) {
@@ -20,8 +23,14 @@ export default new Vuex.Store({
         email: authData.email,
         password: authData.password,
         returnSecureToken: true
-      }).then(response => console.log('response', response))
-        .catch(error => console.log('error', error))
+      }).then(response => {
+        console.log('response', response)
+        // commit authUser mutation
+        commit('authUser', {
+          token: response.data.idToken,
+          userId: response.data.localId
+        })
+      }).catch(error => console.log('error', error))
     },
     login({ commit }, authData) {
       // submit Firebase Login request via axios
@@ -29,8 +38,14 @@ export default new Vuex.Store({
         email: authData.email,
         password: authData.password,
         returnSecureToken: true
-      }).then(response => console.log('response', response))
-        .catch(error => console.log('error', error))
+      }).then(response => {
+        console.log('response', response)
+        // commit authUser mutation
+        commit('authUser', {
+          token: response.data.idToken,
+          userId: response.data.localId
+        })
+      }).catch(error => console.log('error', error))
     }
   },
   getters: {
