@@ -44,6 +44,7 @@ And *<project-name>* is the name of the project to create
 
 ## Applications
 
+- [axios-app](https://github.com/djedi-knight/vuejs-apps/tree/master/axios-app)
 - [advanced-app](https://github.com/djedi-knight/vuejs-apps/tree/master/advanced-app)
 - [animations-app](https://github.com/djedi-knight/vuejs-apps/tree/master/animations-app)
 - [design-bootstrap-app](https://github.com/djedi-knight/vuejs-apps/tree/master/design-bootstrap-app)
