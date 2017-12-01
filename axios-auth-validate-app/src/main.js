@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuelidate from 'vuelidate'
 import axios from 'axios'
 
 import router from './router'
@@ -19,6 +20,9 @@ axios.interceptors.response.use(response => {
   console.log('response (interceptor)', response)
   return response
 })
+
+// use Vuelidate
+Vue.use(Vuelidate)
 
 new Vue({
   el: '#app',

@@ -4,7 +4,10 @@
     <form @submit.prevent="onSubmit">
       <div class="input">
         <label for="email">Mail</label>
-        <input type="email" id="email" v-model="email">
+        <input type="email" id="email" v-model="email" @input="$v.email.$touch()">
+        <div>
+          {{ $v }}
+        </div>
       </div>
       <div class="input">
         <label for="age">Your Age</label>
@@ -51,6 +54,8 @@
 </template>
 
 <script>
+import { email, required } from 'vuelidate/lib/validators'
+
 export default {
   data() {
     return {
@@ -61,6 +66,12 @@ export default {
       country: 'usa',
       hobbyInputs: [],
       terms: false
+    }
+  },
+  validations: {
+    email: {
+      email,
+      required
     }
   },
   methods: {
