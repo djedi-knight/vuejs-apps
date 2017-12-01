@@ -41,11 +41,15 @@ export default new Vuex.Store({
           token: response.data.idToken,
           userId: response.data.localId
         })
+        // dispatch setLogoutTimer action
+        dispatch('setLogoutTimer', response.data.expiresIn)
         // dispatch storeUser action
         dispatch('storeUser', authData)
+        // redirect to dashboard
+        router.replace('dashboard')
       }).catch(error => console.log('error', error))
     },
-    login({ commit }, authData) {
+    login({ commit, dispatch }, authData) {
       // submit Firebase Login request via axios
       axios.post('/verifyPassword?key=AIzaSyCfXeM6r5VN-Yr1up15gjx8PCBF4XkVWjc', {
         email: authData.email,
@@ -58,9 +62,17 @@ export default new Vuex.Store({
           token: response.data.idToken,
           userId: response.data.localId
         })
+        // dispatch setLogoutTimer action
+        dispatch('setLogoutTimer', response.data.expiresIn)
         // redirect to dashboard
         router.replace('dashboard')
       }).catch(error => console.log('error', error))
+    },
+    setLogoutTimer({ dispatch }, expirationTime) {
+      setTimeout(() => {
+        // call the logout action
+        dispatch('logout')
+      }, expirationTime)
     },
     logout({ commit }) {
       commit('clearAuthData')
