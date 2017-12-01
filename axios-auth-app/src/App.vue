@@ -12,6 +12,10 @@ export default {
   name: 'app',
   components: {
     'app-header': Header
+  },
+  created() {
+    // dispatch tryAutoLogin action
+    this.$store.dispatch('tryAutoLogin')
   }
 }
 </script>

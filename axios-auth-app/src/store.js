@@ -46,7 +46,8 @@ export default new Vuex.Store({
         const expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000)
         // save token/ expirationDate to local storage
         localStorage.setItem('token', response.data.idToken)
-        localStorage.setItem('expiresIn', expirationDate)
+        localStorage.setItem('userId', response.data.localId)
+        localStorage.setItem('expirationDate', expirationDate)
         // dispatch setLogoutTimer action
         dispatch('setLogoutTimer', response.data.expiresIn)
         // dispatch storeUser action
@@ -54,6 +55,33 @@ export default new Vuex.Store({
         // redirect to dashboard
         router.replace('dashboard')
       }).catch(error => console.log('error', error))
+    },
+    tryAutoLogin({ commit }) {
+      // get token from localStorage
+      const token = localStorage.getItem('token')
+      // return if token is not present
+      if (!token) {
+        return
+      }
+      // get expirationDate from localStorage
+      const expirationDate = localStorage.getItem('expirationDate')
+      // return if expirationDate is not present
+      if (!expirationDate) {
+        return
+      }
+      // determine if expirationDate has, in fact, expired :P
+      const now = new Date()
+      if (now <= expirationDate) {
+        return
+      } else {
+        // get userId from localStorage
+        const userId = localStorage.getItem('userId')
+        // commit authUser mutation
+        commit('authUser', {
+          token: token,
+          userId: userId
+        })
+      }
     },
     login({ commit, dispatch }, authData) {
       // submit Firebase Login request via axios
@@ -73,7 +101,8 @@ export default new Vuex.Store({
         const expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000)
         // save token/ expirationDate to local storage
         localStorage.setItem('token', response.data.idToken)
-        localStorage.setItem('expiresIn', expirationDate)
+        localStorage.setItem('userId', response.data.localId)
+        localStorage.setItem('expirationDate', expirationDate)
         // dispatch setLogoutTimer action
         dispatch('setLogoutTimer', response.data.expiresIn)
         // redirect to dashboard
