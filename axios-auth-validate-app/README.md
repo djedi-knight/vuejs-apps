@@ -1,6 +1,7 @@
-# axios-auth-app
+# axios-auth-validate-app
 
-> A Vue.js project using Axios as an alternative to vue-resource.  Also, explores the topic of authentication.
+> A Vue.js project using axios as an alternative to vue-resource.
+> Also, explores the topics of authentication and form validation.
 
 ## Build Setup
 

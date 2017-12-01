@@ -46,7 +46,7 @@ And *<project-name>* is the name of the project to create
 
 - [advanced-app](https://github.com/djedi-knight/vuejs-apps/tree/master/advanced-app)
 - [animations-app](https://github.com/djedi-knight/vuejs-apps/tree/master/animations-app)
-- [axios-auth-app](https://github.com/djedi-knight/vuejs-apps/tree/master/axios-auth-app)
+- [axios-auth-validate-app](https://github.com/djedi-knight/vuejs-apps/tree/master/axios-auth-validate-app-app)
 - [design-bootstrap-app](https://github.com/djedi-knight/vuejs-apps/tree/master/design-bootstrap-app)
 - [design-materials-app](https://github.com/djedi-knight/vuejs-apps/tree/master/design-materials-app)
 - [design-semantic-app](https://github.com/djedi-knight/vuejs-apps/tree/master/design-semantic-app)

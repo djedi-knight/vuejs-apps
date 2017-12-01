@@ -1,6 +1,6 @@
 {
-  "name": "axios-auth-app",
-  "description": "A Vue.js project using Axios as an alternative to vue-resource.  Also, explores the topic of authentication.",
+  "name": "axios-auth-validate-app",
+  "description": "A Vue.js project exploring the topics of axios as an alternate to vue-resource, authentication and form validation.",
   "version": "1.0.0",
   "author": "Shawn Daichendt <shawn.daichendt@gmail.com>",
   "license": "MIT",
