@@ -13,11 +13,11 @@ export default new Vuex.Store({
     user: null
   },
   mutations: {
-    authUser(state, user) {
-      state.user = userData.token
+    authUser(state, userData) {
+      state.idToken = userData.token
       state.userId = userData.userId
     },
-    storeUser(state, userData) {
+    storeUser(state, user) {
       state.user = user
     }
   },
@@ -39,11 +39,6 @@ export default new Vuex.Store({
         dispatch('storeUser', authData)
       }).catch(error => console.log('error', error))
     },
-    storeUser({ commit }, userData) {
-      globalAxios.post('/users.json', userData)
-        .then(response => console.log('response', response))
-        .catch(error => console.log('error', error))
-    },
     login({ commit }, authData) {
       // submit Firebase Login request via axios
       axios.post('/verifyPassword?key=AIzaSyCfXeM6r5VN-Yr1up15gjx8PCBF4XkVWjc', {
@@ -59,8 +54,23 @@ export default new Vuex.Store({
         })
       }).catch(error => console.log('error', error))
     },
-    fetchData({ commit }) {
-      globalAxios.get('/users.json').then(response => {
+    storeUser({ commit, state }, userData) {
+      // cancel action if idToken is not present
+      if (!state.idToken) {
+        return
+      }
+      // post user data to Firebase
+      globalAxios.post('/users.json?auth=' + state.idToken, userData)
+        .then(response => console.log('response', response))
+        .catch(error => console.log('error', error))
+    },
+    fetchUser({ commit, state }) {
+      // cancel action if idToken is not present
+      if (!state.idToken) {
+        return
+      }
+      // get user data from Firebase
+      globalAxios.get('/users.json?auth=' + state.idToken).then(response => {
         console.log('response', response)
         // get data from response
         const data = response.data
@@ -72,8 +82,8 @@ export default new Vuex.Store({
           users.push(user)
         }
         console.log('users', users)
-        // dispatch storeUser action
-        dispatch('storeUser', users[0])
+        // commit storeUser mutation
+        commit('storeUser', users[0])
       }).catch(error => console.log('error', error))
     }
   },
