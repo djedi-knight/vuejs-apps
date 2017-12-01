@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import router from './router'
+
 import axios from './axios-auth'
 import globalAxios from 'axios'
 
@@ -19,6 +21,10 @@ export default new Vuex.Store({
     },
     storeUser(state, user) {
       state.user = user
+    },
+    clearAuthData(state) {
+      state.idToken = null
+      state.userId = null
     }
   },
   actions: {
@@ -52,7 +58,14 @@ export default new Vuex.Store({
           token: response.data.idToken,
           userId: response.data.localId
         })
+        // redirect to dashboard
+        router.replace('dashboard')
       }).catch(error => console.log('error', error))
+    },
+    logout({ commit }) {
+      commit('clearAuthData')
+      // redirect to signin
+      router.replace('signin')
     },
     storeUser({ commit, state }, userData) {
       // cancel action if idToken is not present
