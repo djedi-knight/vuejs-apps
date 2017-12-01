@@ -41,6 +41,12 @@ export default new Vuex.Store({
           token: response.data.idToken,
           userId: response.data.localId
         })
+        // calculate token expiration date
+        const now = new Date()
+        const expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000)
+        // save token/ expirationDate to local storage
+        localStorage.setItem('token', response.data.idToken)
+        localStorage.setItem('expiresIn', expirationDate)
         // dispatch setLogoutTimer action
         dispatch('setLogoutTimer', response.data.expiresIn)
         // dispatch storeUser action
@@ -62,6 +68,12 @@ export default new Vuex.Store({
           token: response.data.idToken,
           userId: response.data.localId
         })
+        // calculate token expiration date
+        const now = new Date()
+        const expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000)
+        // save token/ expirationDate to local storage
+        localStorage.setItem('token', response.data.idToken)
+        localStorage.setItem('expiresIn', expirationDate)
         // dispatch setLogoutTimer action
         dispatch('setLogoutTimer', response.data.expiresIn)
         // redirect to dashboard
@@ -72,7 +84,7 @@ export default new Vuex.Store({
       setTimeout(() => {
         // call the logout action
         dispatch('logout')
-      }, expirationTime)
+      }, expirationTime * 1000)
     },
     logout({ commit }) {
       commit('clearAuthData')
