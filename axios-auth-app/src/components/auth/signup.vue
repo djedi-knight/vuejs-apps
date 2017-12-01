@@ -86,10 +86,7 @@ export default {
       }
 
       // dispatch signup action
-      this.$store.dispatch('signup', {
-        email: formData.email,
-        password: formData.password
-      })
+      this.$store.dispatch('signup', formData)
     }
   }
 }
