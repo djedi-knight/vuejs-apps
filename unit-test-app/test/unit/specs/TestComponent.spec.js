@@ -52,4 +52,20 @@ describe('TestComponent.vue', () => {
       done()
     })
   })
+
+  it('adds a new item to list on click', done => {
+    const vm = new Vue(TestComponent).$mount()
+
+    // set value of newItem
+    vm.newItem = 'brush my teeth'
+    console.log('vm.newItem AFTER', vm.newItem)
+
+    // call addItemToList method
+    vm.addItemToList()
+    // wait a "tick" after state change before asserting DOM updates
+    Vue.nextTick(() => {
+      expect(vm.$el.textContent).toContain('brush my teeth')
+      done()
+    })
+  })
 })
