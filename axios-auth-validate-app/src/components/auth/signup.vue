@@ -11,15 +11,15 @@
       <div class="input" :class="{invalid: $v.age.$error}">
         <label for="age">Your Age</label>
         <input type="number" id="age" v-model.number="age" @blur="$v.age.$touch()">
-        <p v-if="!$v.age.atLeast18">You have to be {{ $v.age.$params.atLeast18.min }} or older.</p>
+        <p v-if="!$v.age.minAge">You have to be {{ $v.age.$params.minAge.min }} or older.</p>
       </div>
-      <div class="input">
+      <div class="input" :class="{invalid: $v.password.$error}">
         <label for="password">Password</label>
-        <input type="password" id="password" v-model="password">
+        <input type="password" id="password" v-model="password" @blur="$v.password.$touch()">
       </div>
-      <div class="input">
+      <div class="input" :class="{invalid: $v.confirmPassword.$error}">
         <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" v-model="confirmPassword">
+        <input type="password" id="confirm-password" v-model="confirmPassword" @blur="$v.confirmPassword.$touch()">
       </div>
       <div class="input">
         <label for="country">Country</label>
@@ -54,7 +54,14 @@
 </template>
 
 <script>
-import { email, minValue, numeric, required } from 'vuelidate/lib/validators'
+import {
+  email,
+  minLength,
+  minValue,
+  numeric,
+  required,
+  sameAs
+} from 'vuelidate/lib/validators'
 
 export default {
   data() {
@@ -74,9 +81,20 @@ export default {
       required
     },
     age: {
-      atLeast18: minValue(18),
+      minAge: minValue(18),
       numeric,
       required
+    },
+    password: {
+      required,
+      minLength: minLength(6)
+    },
+    confirmPassword: {
+      // sameAs: sameAs('password')
+      sameAs: sameAs(vm => {
+        return vm.password + 'secretsauce'
+      })
+
     }
   },
   methods: {
