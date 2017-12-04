@@ -34,12 +34,14 @@
         <h3>Add some Hobbies</h3>
         <button @click="onAddHobby" type="button">Add Hobby</button>
         <div class="hobby-list">
-          <div class="input" v-for="(hobbyInput, index) in hobbyInputs" :key="hobbyInput.id">
+          <div class="input" v-for="(hobbyInput, index) in hobbyInputs" :key="hobbyInput.id" :class="{invalid: $v.hobbyInputs.$each[index].$error}">
             <label :for="hobbyInput.id">Hobby #{{ index }}</label>
-            <input type="text" :id="hobbyInput.id" v-model="hobbyInput.value">
+            <input type="text" :id="hobbyInput.id" v-model="hobbyInput.value" @blur="$v.hobbyInputs.$each[index].value.$touch()">
             <button @click="onDeleteHobby(hobbyInput.id)" type="button">X</button>
           </div>
         </div>
+        <p v-if="!$v.hobbyInputs.minLength">You have to specify at least {{ $v.hobbyInputs.$params.minLength.min }} hobbies.</p>
+        <p v-if="!$v.hobbyInputs.required">Please add hobbies.</p>
       </div>
       <div class="input inline" :class="{invalid: $v.terms.$invalid}">
         <input type="checkbox" id="terms" @change="$v.terms.$touch()" v-model="terms">
@@ -100,6 +102,16 @@ export default {
       required: requiredUnless(vm => {
         return vm.country === 'germany'
       })
+    },
+    hobbyInputs: {
+      required,
+      minLength: minLength(2),
+      $each: {
+        value: {
+          required,
+          minLength: minLength(5)
+        }
+      }
     }
   },
   methods: {
