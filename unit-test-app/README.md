@@ -1,6 +1,6 @@
 # unit-test-app
 
-> A Vue.js project exploring the topic of unit testing
+> A Vue.js project exploring the topic of unit tests
 
 ## Build Setup
 
