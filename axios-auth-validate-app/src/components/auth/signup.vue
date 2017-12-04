@@ -8,9 +8,10 @@
         <p v-if="!$v.email.required">This field must not be empty.</p>
         <p v-if="!$v.email.email">Please provide a valid email address.</p>
       </div>
-      <div class="input">
+      <div class="input" :class="{invalid: $v.age.$error}">
         <label for="age">Your Age</label>
-        <input type="number" id="age" v-model.number="age">
+        <input type="number" id="age" v-model.number="age" @blur="$v.age.$touch()">
+        <p v-if="!$v.age.atLeast18">You have to be {{ $v.age.$params.atLeast18.min }} or older.</p>
       </div>
       <div class="input">
         <label for="password">Password</label>
@@ -53,7 +54,7 @@
 </template>
 
 <script>
-import { email, required } from 'vuelidate/lib/validators'
+import { email, minValue, numeric, required } from 'vuelidate/lib/validators'
 
 export default {
   data() {
@@ -70,6 +71,11 @@ export default {
   validations: {
     email: {
       email,
+      required
+    },
+    age: {
+      atLeast18: minValue(18),
+      numeric,
       required
     }
   },
