@@ -81,7 +81,10 @@ export default {
   validations: {
     email: {
       email,
-      required
+      required,
+      unique(val) {
+        return val !== 'test@mail.com'
+      }
     },
     age: {
       minAge: minValue(18),
