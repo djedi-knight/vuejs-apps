@@ -1,9 +1,13 @@
 <template>
-<span>{{ message }}</span>
+<div>
+  <span>{{ message }}</span>
+  <p>{{ firstParam }}</p>
+</div>
 </template>
 
 <script>
 export default {
+  props: ['firstParam'],
   data() {
     return {
       message: 'hello!'

@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import TestComponent from '@/components/TestComponent'
 
+// helper function that mounts and returns the rendered text
+function getRenderedText (Component, propsData) {
+  const Ctor = Vue.extend(Component)
+  const vm = new Ctor({ propsData }).$mount()
+  return vm.$el.textContent
+}
+
 describe('TestComponent.vue', () => {
   // Inspect the raw component options
   it('has a created hook', () => {
@@ -25,6 +32,12 @@ describe('TestComponent.vue', () => {
   it('renders the correct message', () => {
     const Ctor = Vue.extend(TestComponent)
     const vm = new Ctor().$mount()
-    expect(vm.$el.textContent).toBe('bye!')
+    expect(vm.$el.textContent).toContain('bye!')
+  })
+
+  it('renders correctly with different props', () => {
+    expect(getRenderedText(TestComponent, {
+      firstParam: 'Test'
+    })).toContain('Test')
   })
 })
