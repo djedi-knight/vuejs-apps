@@ -40,4 +40,16 @@ describe('TestComponent.vue', () => {
       firstParam: 'Test'
     })).toContain('Test')
   })
+
+  // Inspect the generated HTML after a state update
+  it('updates the rendered message when vm.message updates', done => {
+    const vm = new Vue(TestComponent).$mount()
+    vm.message = 'foo'
+
+    // wait a "tick" after state change before asserting DOM updates
+    Vue.nextTick(() => {
+      expect(vm.$el.textContent).toContain('foo')
+      done()
+    })
+  })
 })
