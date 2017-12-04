@@ -60,4 +60,5 @@ And *<project-name>* is the name of the project to create
 - [state-management-app](https://github.com/djedi-knight/vuejs-apps/tree/master/state-management-app)
 - [stock-trader-app](https://github.com/djedi-knight/vuejs-apps/tree/master/stock-trader-app)
 - [todo-app](https://github.com/djedi-knight/vuejs-apps/tree/master/todo-app)
+- [unit-test-app](https://github.com/djedi-knight/vuejs-apps/tree/master/unit-test-app)
 - [webpack-simple-app](https://github.com/djedi-knight/vuejs-apps/tree/master/webpack-simple-app)
