@@ -65,6 +65,7 @@ import {
   requiredUnless,
   sameAs
 } from 'vuelidate/lib/validators'
+import axios from 'axios'
 
 export default {
   data() {
@@ -83,7 +84,14 @@ export default {
       email,
       required,
       unique(val) {
-        return val !== 'test@mail.com'
+        // if val is blank, skip check
+        if (val === '') return true
+        return new Promise((resolve, reject) => {
+          return axios.get('/users.json?orderBy="email"&equalTo="' + val + '"')
+            .then(response => {
+              return Object.keys(response.data).length === 0
+            })
+        })
       }
     },
     age: {
