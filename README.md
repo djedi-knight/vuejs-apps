@@ -12,14 +12,6 @@ Run the following command to install the [vue-cli](https://github.com/vuejs/vue-
 npm install -g vue-cli
 ```
 
-### Install Vuetify Vue-CLI T
-
-Run the following command to install the [vue-cli](https://github.com/vuejs/vue-cli):
-
-```
-npm install -g vue-cli
-```
-
 ### Create a New Project
 
 Run the following command to create a new project:
